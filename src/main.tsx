@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthCallback from "./AuthCallback";
-import Home from "./Home";
 
 import App from "./App";
+import "./styles/index.css";  // Make sure this is imported
 
 const router = createBrowserRouter(
   [
@@ -12,7 +12,6 @@ const router = createBrowserRouter(
       element: <App />,
     },
     {
-      // This is the route defined in your application's redirect URL
       path: "/auth/callback",
       element: <AuthCallback />,
     },

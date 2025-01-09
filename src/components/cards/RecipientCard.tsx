@@ -6,34 +6,27 @@ import type { Recipient } from '../../types';
 interface RecipientCardProps extends Recipient {}
 
 export const RecipientCard: React.FC<RecipientCardProps> = ({ name, wishes, image }) => (
-  <div className="card-base card-hover group">
-    {/* Hover gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-transparent opacity-0 group-hover:opacity-100 fade-in"/>
-    
-    <div className="relative z-10">
-      {/* Header with image and name */}
+  <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
+    <div className="p-6">
       <div className="flex items-center gap-4 mb-6">
-        <div className="w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+        <div className="w-16 h-16 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
           {image ? (
             <img src={image} alt={name} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gray-800">
-              <User className="w-8 h-8 text-gray-400" />
-            </div>
+            <User className="w-8 h-8 text-gray-400" />
           )}
         </div>
         <div>
-          <h3 className="heading-medium">{name}</h3>
-          <p className="text-body">{wishes.length} items</p>
+          <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+          <p className="text-sm text-gray-500">{wishes.length} items</p>
         </div>
       </div>
 
-      {/* Wishlist items */}
       <div className="space-y-3">
-        {wishes.slice(0, 3).map((wish, index) => (
-          <div key={index} className="flex items-center gap-3 text-gray-300">
-            <Gift className="w-4 h-4" />
-            <span className="text-body">{wish}</span>
+        {wishes.map((wish, index) => (
+          <div key={index} className="flex items-center gap-3 text-gray-600">
+            <Gift className="w-4 h-4 text-blue-500" />
+            <span className="text-sm">{wish}</span>
           </div>
         ))}
       </div>
