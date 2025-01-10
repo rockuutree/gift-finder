@@ -5,7 +5,6 @@ import AuthenticatedRoute from "./AuthenticatedRoute";
 import Home from "./Home";
 import Login from "./Login";
 import "./index.css";
-import App from "./App";
 
 const router = createBrowserRouter(
   [
@@ -15,7 +14,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          element: <App />,
+          element: <Home />,
         },
       ],
     },

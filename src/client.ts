@@ -1,6 +1,6 @@
 import { createClient } from "@osdk/client";
 import { createPublicOauthClient } from "@osdk/oauth";
-import { $ontologyRid } from "@gift-searcher/sdk";
+import { $ontologyRid } from "@tutorial-to-do-application/sdk";
 
 const url = import.meta.env.VITE_FOUNDRY_API_URL;
 const clientId = import.meta.env.VITE_FOUNDRY_CLIENT_ID;

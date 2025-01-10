@@ -1,7 +1,7 @@
 {
   "foundryUrl": "https://rocktree.usw-16.palantirfoundry.com",
   "site": {
-    "application": "ri.third-party-applications.main.application.8525ddc4-c13c-4fd6-aa6b-54c2b267f217",
+    "application": "ri.third-party-applications.main.application.1588404b-a60b-435d-aa3e-99e101371b43",
     "directory": "./dist",
     "autoVersion": {
       "type": "git-describe",

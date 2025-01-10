@@ -1,6 +1,6 @@
-# gift-finder
+# my-osdk-app
 
-This project was generated with [`@osdk/create-app`](https://www.npmjs.com/package/@osdk/create-app) and demonstrates using the Ontology SDK package `@gift-searcher/sdk` with React on top of Vite. Check out the [Vite](https://vitejs.dev/guide/) docs for further configuration.
+This project was generated with [`@osdk/create-app`](https://www.npmjs.com/package/@osdk/create-app) and is intended to be used alongside the Developer Console tutorial for creating a To Do App against a reference Ontology.
 
 ## Developing
 
@@ -12,7 +12,7 @@ npm run dev
 
 Development configuration is stored in `.env.development`.
 
-In order to make API requests to Foundry, CORS must be configured for the stack to allow `http://localhost:8080` to load resources. If this has not been configured and you are unable to request this, you can alternatively generate your project again with `--corsProxy true` to use a proxy for API requests during local development. The configured OAuth client must also allow `http://localhost:8080/auth/callback` as a redirect URL.
+In order to make API requests to Foundry, a CORS proxy has been set up for local development which may be removed if the stack is configured to allow `http://localhost:8080` to load resources. The configured OAuth client must also allow `http://localhost:8080/auth/callback` as a redirect URL.
 
 ## Deploying
 
