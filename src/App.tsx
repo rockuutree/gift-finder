@@ -7,8 +7,8 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('search');
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="relative bg-white">
+    <div className="min-h-screen w-full">
+      <div className="relative">
         <div className="relative z-10 px-6 pt-8 max-w-7xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Gift Finder

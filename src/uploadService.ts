@@ -1,5 +1,4 @@
-// src/uploadService.ts
-import { client } from './client';
+import { client, auth } from './client'; // Ensure you import auth
 import { AttachmentUpload } from "@osdk/api";
 
 export async function uploadPdfToMediaSet(file: File) {
@@ -11,7 +10,7 @@ export async function uploadPdfToMediaSet(file: File) {
     const response = await fetch(`${import.meta.env.VITE_FOUNDRY_API_URL}/v2/ontologies/attachments/upload`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${client.auth.getTokenOrUndefined()}`,
+        'Authorization': `Bearer ${await auth.getTokenOrUndefined()}`, // Use auth directly
         'Content-Type': 'application/pdf'
       },
       body: blob
@@ -27,7 +26,7 @@ export async function uploadPdfToMediaSet(file: File) {
     const result = await fetch(`${import.meta.env.VITE_FOUNDRY_API_URL}/api/v1/mio/mio-service/media-sets/ri.mio.main.media-set.45fa03af-9be7-4322-992e-0792d5311c00/files`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${client.auth.getTokenOrUndefined()}`,
+        'Authorization': `Bearer ${await auth.getTokenOrUndefined()}`, // Use auth directly
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
