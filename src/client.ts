@@ -1,11 +1,10 @@
-import { Client, createClient } from "@osdk/client";
-import { $ontologyRid } from "@gift-searcher/sdk";
+import { createClient } from "@osdk/client";
 import { createPublicOauthClient } from "@osdk/oauth";
+import { $ontologyRid } from "@gift-searcher/sdk";
 
 const url = import.meta.env.VITE_FOUNDRY_API_URL;
 const clientId = import.meta.env.VITE_FOUNDRY_CLIENT_ID;
 const redirectUrl = import.meta.env.VITE_FOUNDRY_REDIRECT_URL;
-
 checkEnv(url, "VITE_FOUNDRY_API_URL");
 checkEnv(clientId, "VITE_FOUNDRY_CLIENT_ID");
 checkEnv(redirectUrl, "VITE_FOUNDRY_REDIRECT_URL");
@@ -19,18 +18,19 @@ function checkEnv(
   }
 }
 
-export const auth = createPublicOauthClient(
-  clientId,
-  url,
-  redirectUrl,
-  )
 /**
  * Initialize the client to interact with the Ontology SDK
  */
-const client: Client = createClient(
+const auth = createPublicOauthClient(
+  clientId,
+  url,
+  redirectUrl,
+);
+
+const client = createClient(
   url,
   $ontologyRid,
   auth,
 );
 
-export default client;
+export { auth, client };

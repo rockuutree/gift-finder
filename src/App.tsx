@@ -5,9 +5,8 @@ import { Navigation } from './components/layout/Navigation';
 import { GlobalSearch } from './components/search/GlobalSearch';
 import { UploadSection } from './components/upload/UploadSection';
 import { RecipientCard } from './components/cards/RecipientCard';
-import type { Recipient } from './types';
 
-const MOCK_RECIPIENTS: Recipient[] = [
+const MOCK_RECIPIENTS = [
   {
     name: 'Amanda',
     wishes: ['Lipstick', 'Makeup', 'Clothes'],
@@ -22,30 +21,36 @@ const MOCK_RECIPIENTS: Recipient[] = [
 
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeSection, setActiveSection] = useState('discover');
+  const [activeSection, setActiveSection] = useState('search');
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#1a1e2e] text-gray-100">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-6 -mt-8 relative z-20">
-        <GlobalSearch 
-          value={searchQuery} 
-          onChange={setSearchQuery} 
-        />
-        
+      <main className="max-w-7xl mx-auto px-6 py-8">
         <Navigation 
           activeSection={activeSection}
           onSectionChange={setActiveSection}
         />
-        
-        <UploadSection />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
-          {MOCK_RECIPIENTS.map((recipient, index) => (
-            <RecipientCard key={index} {...recipient} />
-          ))}
-        </div>
+        {activeSection === 'search' ? (
+          <div className="space-y-6">
+            <GlobalSearch 
+              value={searchQuery} 
+              onChange={setSearchQuery} 
+            />
+            {/* Search results would go here */}
+          </div>
+        ) : (
+          <div className="space-y-8">
+            <UploadSection />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {MOCK_RECIPIENTS.map((recipient, index) => (
+                <RecipientCard key={index} {...recipient} />
+              ))}
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
